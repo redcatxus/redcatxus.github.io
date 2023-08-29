@@ -1,8 +1,14 @@
 <html>
+    
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>CatXus' Realm</title>
     </head>
     <style>
+        body {
+            overflow-x: hidden;
+        }
+        
         @keyframes titletext {
             from {
                 opacity: 0;
@@ -13,6 +19,18 @@
                 transform: translateX(0);
             }
         }
+        @keyframes imgtitle {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+                transform: rotate(0deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+                transform: rotate(30deg);
+            }   
+        }
         .container {
             text-align: center;
         }
@@ -20,9 +38,14 @@
             color:white;
             font-size: 60px;
             font-family: Arial, Helvetica, sans-serif;
-            padding-top: 50px;
+            padding-top: 45px; 
+            padding-bottom: 50px;   
             font-weight: 700;
-            animation: titletext 1s ease;
+            animation: titletext 2s ease;
+            z-index: 2;
+            border: 10px solid;
+            text-shadow: 5px 5px 15px black;
+            
         }
         .boxtitle {
             width: 100px;
@@ -34,7 +57,7 @@
             padding-left: 100%;
             top: 0px;
             right: 0px;
-            z-index: -1;
+            z-index: -2;
         }
         .header {
             color: white;
@@ -93,10 +116,49 @@
             left: 0;
             color: white;
             font-family: Arial, Helvetica, sans-serif;
+       }
+       .img {
+            width: 200;
+            position: absolute;
+            top: 5px;
+            left: 40vw;
+            z-index: -1;
+            transform: rotate(30deg);
+            animation: imgtitle 2.5s ease;
+       }
+        /*Media Query time :33 (please dont touch anything)*/
+        @media (max-width: 700px) {
+            .header {
+                font-size: 50px;
+            }
+            .text {
+                font-size: 35px;
+            }
+            .btn {
+                font-size: 45;
+            }
+            .crdt {
+                font-size: 15px;
+            }
+        }
+        @media (max-width: 472px) {
+            .header {
+                font-size: 40px;
+            }
+            .text {
+                font-size: 30px;
+            }
+            .btn {
+                font-size: 35;
+            }
+            .crdt {
+                font-size: 12px;
+            }
         }
     </style>
     <body style="background-color: #453d3c;">
         <div class="container">
+            <img src="https://github.com/redcatxus/redcatxus.github.io/blob/main/assets/cat-1.png?raw=true" class="img">
         <p class="title">CatXus</p>
         <div class="boxtitle"></div>
         <h1 class="header" id="header1">About me</h1>
@@ -117,7 +179,13 @@
         <form action="https://instagram.com/redcatxus"><button class="btn">Instagram</button></form>
         <form action="https://gdbrowser.com/u/CatXus"><button class="btn">Geometry Dash</button></form>
         <br><br><br>
-        <p class="crdt">This website was made possible by: <a href="https://discordapp.com/users/704237201285971988">BurgeryCrafty</a><br>The website is currently not optimized for mobile devices, stay tuned :3<br><strong>This is a static website hosted using Github Pages, Our Source code Is <a href="https://github.com/redcatxus/redcatxus.github.io">Available</a> for anyone :P</strong></p>
+        <p class="crdt">This website was made possible by: <a href="https://discordapp.com/users/704237201285971988">BurgeryCrafty</a>
+            <br>
+            The website is currently not optimized for mobile devices, stay tuned :3
+            <br>
+            <strong>
+                This is a static website hosted using Github Pages, Our Source code Is <a href="https://github.com/redcatxus/redcatxus.github.io">Available</a> for anyone :P</strong>
+            </p>
         </div>
     </body>
     <script>
