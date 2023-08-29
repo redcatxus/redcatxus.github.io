@@ -57,7 +57,7 @@
             padding-left: 100%;
             top: 0px;
             right: 0px;
-            z-index: -2;
+            z-index: -3;
         }
         .header {
             color: white;
@@ -140,6 +140,10 @@
             .crdt {
                 font-size: 15px;
             }
+            .img {
+                width: 180;
+                top: 17px;
+            }
         }
         @media (max-width: 472px) {
             .header {
@@ -154,11 +158,20 @@
             .crdt {
                 font-size: 12px;
             }
+            .img {
+                width: 150;
+                top: 30px;
+            }
         }
     </style>
     <body style="background-color: #453d3c;">
         <div class="container">
             <img src="https://github.com/redcatxus/redcatxus.github.io/blob/main/assets/cat-1.png?raw=true" class="img">
+            <img src="https://github.com/redcatxus/redcatxus.github.io/blob/main/assets/cat-1-blue.png?raw=true" class="img" style="
+            left: 37vw; 
+            z-index:-2; 
+            opacity: 0.6; 
+            transition: 0.5s;">
         <p class="title">CatXus</p>
         <div class="boxtitle"></div>
         <h1 class="header" id="header1">About me</h1>
