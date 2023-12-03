@@ -3,18 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#1D1D27"> <!-- Set your primary color here -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-components-web@13.0.0/dist/material-components-web.min.css">
+  <style>
+    body {
+      background-color: #1D1D27;
+      color: #fff;
+    }
 
-  <title>Your Material Design 3 Website</title>
-  
-  <!-- Add Material Design 3 CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/materialize@3.0.0/dist/css/materialize.min.css">
+    .mdc-top-app-bar__section--align-end {
+      flex-grow: 1;
+    }
+
+    .mdc-top-app-bar__action-item {
+      color: #2A2C38;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: flex-end;
+      padding: 16px;
+    }
+
+    .social-buttons a {
+      margin-left: 16px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .mdc-switch {
+      margin: 16px;
+    }
+  </style>
+  <title>Your Material 3 Webpage</title>
 </head>
-<body>
-  <!-- Your content goes here -->
+<body class="mdc-typography">
 
-  <!-- Add Material Design 3 JavaScript (optional) -->
-  <script src="https://cdn.jsdelivr.net/npm/materialize@3.0.0/dist/js/materialize.min.js"></script>
+  <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon">menu</button>
+        <span class="mdc-top-app-bar__title">Material 3 Webpage</span>
+      </section>
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
+        <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item" id="menuBtn">menu</button>
+      </section>
+    </div>
+  </header>
+
+  <div class="mdc-top-app-bar--fixed-adjust">
+    <div class="mdc-card" style="max-width: 400px; margin: auto;">
+      <section class="mdc-card__primary">
+        <h2 class="mdc-card__title mdc-card__title--large">Welcome to Material 3</h2>
+        <h3 class="mdc-card__subtitle">A beautiful and modern design system.</h3>
+      </section>
+      <section class="mdc-card__supporting-text">
+        Explore the features of Material 3 and create stunning web experiences.
+      </section>
+    </div>
+
+    <div class="social-buttons">
+      <a href="#" target="_blank">Facebook</a>
+      <a href="#" target="_blank">Twitter</a>
+      <a href="#" target="_blank">Instagram</a>
+    </div>
+
+    <div style="padding: 16px;">
+      <p>Your content goes here. Replace this with your actual page content.</p>
+
+      <div class="mdc-switch">
+        <div class="mdc-switch__track"></div>
+        <div class="mdc-switch__thumb-underlay">
+          <div class="mdc-switch__thumb">
+            <input type="checkbox" id="toggleSwitch" class="mdc-switch__native-control">
+          </div>
+        </div>
+      </div>
+      <label for="toggleSwitch">Toggle Switch</label>
+    </div>
+  </div>
+
+  <script type="module">
+    import { MDCRipple } from 'https://cdn.jsdelivr.net/npm/@material/ripple@5.0.3/index.mjs';
+    import { MDCSwitch } from 'https://cdn.jsdelivr.net/npm/@material/switch@5.0.3/index.mjs';
+
+    const button = new MDCRipple(document.getElementById('menuBtn'));
+    button.listen('click', () => {
+      // Add your menu toggle logic here
+      alert('Hamburger icon clicked!');
+    });
+
+    const switchControl = new MDCSwitch(document.querySelector('.mdc-switch'));
+  </script>
+
 </body>
 </html>
