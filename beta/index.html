@@ -6,16 +6,24 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-components-web@13.0.0/dist/material-components-web.min.css">
   <style>
     body {
-      background-color: #1D1D27;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #6200ea;
       color: #fff;
+      padding: 16px;
+      text-align: center;
     }
 
-    .mdc-top-app-bar__section--align-end {
-      flex-grow: 1;
+    .mdc-top-app-bar {
+      background-color: #6200ea;
     }
 
-    .mdc-top-app-bar__action-item {
-      color: #2A2C38;
+    .mdc-top-app-bar__title {
+      color: #fff;
     }
 
     .social-buttons {
@@ -26,38 +34,71 @@
 
     .social-buttons a {
       margin-left: 16px;
-      color: #fff;
+      color: #6200ea;
       text-decoration: none;
+    }
+
+    .mdc-card {
+      max-width: 400px;
+      margin: auto;
+      padding: 16px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .mdc-card__primary {
+      color: #6200ea;
     }
 
     .mdc-switch {
       margin: 16px;
     }
+
+    .mdc-menu {
+      width: 200px;
+    }
+
+    .mdc-list-item {
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #6200ea;
+      color: #fff;
+      text-align: center;
+      padding: 16px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
   </style>
-  <title>Your Material 3 Webpage</title>
+  <title>Your Material Design Webpage</title>
 </head>
 <body class="mdc-typography">
 
-  <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+  <header>
+    <h1>Material Design Webpage</h1>
+  </header>
+
+  <div class="mdc-top-app-bar mdc-top-app-bar--fixed">
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
         <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon">menu</button>
-        <span class="mdc-top-app-bar__title">Material 3 Webpage</span>
+        <span class="mdc-top-app-bar__title">Material Design Webpage</span>
       </section>
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end">
         <button class="mdc-icon-button material-icons mdc-top-app-bar__action-item" id="menuBtn">menu</button>
       </section>
     </div>
-  </header>
+  </div>
 
   <div class="mdc-top-app-bar--fixed-adjust">
-    <div class="mdc-card" style="max-width: 400px; margin: auto;">
+    <div class="mdc-card">
       <section class="mdc-card__primary">
-        <h2 class="mdc-card__title mdc-card__title--large">Welcome to Material 3</h2>
+        <h2 class="mdc-card__title mdc-card__title--large">Welcome to Material Design</h2>
         <h3 class="mdc-card__subtitle">A beautiful and modern design system.</h3>
       </section>
       <section class="mdc-card__supporting-text">
-        Explore the features of Material 3 and create stunning web experiences.
+        Explore the features of Material Design and create stunning web experiences.
       </section>
     </div>
 
@@ -69,6 +110,14 @@
 
     <div style="padding: 16px;">
       <p>Your content goes here. Replace this with your actual page content.</p>
+
+      <div class="mdc-menu mdc-menu-surface">
+        <button class="mdc-button" id="themeMenuBtn">Themes</button>
+        <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
+          <li class="mdc-list-item" role="menuitem" tabindex="0" onclick="changeTheme('theme1')">Theme 1</li>
+          <li class="mdc-list-item" role="menuitem" tabindex="1" onclick="changeTheme('theme2')">Theme 2</li>
+        </ul>
+      </div>
 
       <div class="mdc-switch">
         <div class="mdc-switch__track"></div>
@@ -82,9 +131,14 @@
     </div>
   </div>
 
+  <footer>
+    &copy; 2023 Your Material Design Webpage
+  </footer>
+
   <script type="module">
     import { MDCRipple } from 'https://cdn.jsdelivr.net/npm/@material/ripple@5.0.3/index.mjs';
     import { MDCSwitch } from 'https://cdn.jsdelivr.net/npm/@material/switch@5.0.3/index.mjs';
+    import { MDCMenu } from 'https://cdn.jsdelivr.net/npm/@material/menu@5.0.3/index.mjs';
 
     const button = new MDCRipple(document.getElementById('menuBtn'));
     button.listen('click', () => {
@@ -93,7 +147,8 @@
     });
 
     const switchControl = new MDCSwitch(document.querySelector('.mdc-switch'));
-  </script>
 
-</body>
-</html>
+    const menu = new MDCMenu(document.querySelector('.mdc-menu'));
+    const themeMenuBtn = document.getElementById('themeMenuBtn');
+
+    themeMenuBtn.addEventListener('click', () => {
